@@ -1,4 +1,5 @@
 def guess_next_letter(pattern, used_letters=[], word_list=['about', 'cboud', 'anoad']):
+    maxNum = ""
     l = len(pattern)
     patternIndex = [] #记录下线先索引
     latterIndex = {} #记录字母索引
@@ -29,13 +30,8 @@ def guess_next_letter(pattern, used_letters=[], word_list=['about', 'cboud', 'an
                     else:
                         possibleAlphabet[word[index]] = 1
 
-    maxNum = ""
-    #找出出现次数最多字母
-    for index in possibleAlphabet:
-        if maxNum == "":
-            maxNum = index
-        if possibleAlphabet[index] > possibleAlphabet[maxNum]:
-            maxNum = index
+                    if maxNum == "" or possibleAlphabet[word[index]] > possibleAlphabet[maxNum]:
+                        maxNum = word[index]
 
     return maxNum
 
